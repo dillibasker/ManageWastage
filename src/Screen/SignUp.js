@@ -4,14 +4,14 @@ import axios from 'axios';
 
 const SignupScreen = () => {
   const [email, setEmail] = useState('');
-  const [name, setName] = useState('');
+  const [username, setUserName] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSignup = async () => {
     try {
-      const response = await axios.post('http://YOUR_BACKEND_URL/api/signup', {
+      const response = await axios.post('http://192.168.129.136:5000/register', {
+        username,
         email,
-        name,
         password,
       });
       Alert.alert('Success', response.data.message);
@@ -26,7 +26,7 @@ const SignupScreen = () => {
       <TextInput
         style={styles.input}
         placeholder="Name"
-        value={name}
+        value={username}
         onChangeText={setName}
       />
       <TextInput
